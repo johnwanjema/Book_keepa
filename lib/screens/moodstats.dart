@@ -48,10 +48,9 @@ class _moodsStatsState extends State<moodsStats> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size; //give height and width of device
     return Scaffold(
-      body: Stack(children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Column(
+      body: SingleChildScrollView(
+        child: Stack(children: <Widget>[
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
@@ -86,8 +85,8 @@ class _moodsStatsState extends State<moodsStats> {
                     children: <Widget>[
                       Text(
                         'Weekly',
-                        style: TextStyle(
-                            fontSize: 23, fontWeight: FontWeight.bold),
+                        style:
+                            TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
                       )
                     ],
                   ),
@@ -106,24 +105,110 @@ class _moodsStatsState extends State<moodsStats> {
               SizedBox(
                 height: 15,
               ),
-              Expanded(
-                child: GridView.count(
-                  crossAxisCount: 2,
-                  childAspectRatio: 1.8,
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20,
+              Wrap(
+                spacing: 24,
+                children: <Widget>[
+                  statsCard(
+                    title: 'Day recorded',
+                    count: '74',
+                    color: Colors.blue,
+                  ),
+                  statsCard(
+                    title: 'Moods recorded',
+                    count: '88',
+                    color: Colors.purple,
+                  ),
+                ],
+              ),
+              Text(
+                'Overall Mood Performance',
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Wrap(
+                  runSpacing: 10.0,
+                  spacing: 10.0,
                   children: <Widget>[
-                    statsCard(title: 'Day recorded', count: '74', color: Colors.blue,),
-                    statsCard(title: 'Moods recorded' ,count: '88', color: Colors.purple,),
+                    moodsCards(),
+                    moodsCards(),
+                    moodsCards(),
+                    moodsCards(),
+                    moodsCards(),
                   ],
                 ),
               ),
+
+              
             ],
-          ),
-        )
-      ]),
+          )
+        ]),
+      ),
     );
   }
 }
 
+class moodsCards extends StatelessWidget {
+  const moodsCards({
+    Key key,
+  }) : super(key: key);
 
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(20),
+      // color: Colors.orange,
+      decoration: BoxDecoration(
+        color: Colors.orange,
+        borderRadius: BorderRadius.circular(13),
+      ),
+      child: Row(
+        children: <Widget>[
+          Container(
+            height: 42,
+            width: 43,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(13),
+              image: DecorationImage(
+                image: NetworkImage(
+                    'https://i.pinimg.com/originals/23/83/b8/2383b8c0a126d1d6e45c69e1f1d8c835.png'),
+                fit: BoxFit.fill,
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 5,
+          ),
+          Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  Text(
+                    ' Great Mood \n  20 Days 22 Recordings',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 23),
+                    child: Text(
+                      '25%',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 23),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}

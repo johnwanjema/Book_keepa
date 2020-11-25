@@ -16,7 +16,7 @@ class statsCard extends StatelessWidget {
     var size = MediaQuery.of(context).size; //give height and width of device
     return Container(
       padding: EdgeInsets.all(20),
-      height: size.height * .05,
+      height: size.height * .15,
       decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(13)),
