@@ -1,6 +1,5 @@
 import 'dart:async';
-import 'dart:js';
-
+import 'package:book_keepa/screens/moodstats.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -45,11 +44,12 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+  void openHome(){
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>moodStats()));
+  }
 }
 
-void openHome(){
-  
-}
+
 
 
 
