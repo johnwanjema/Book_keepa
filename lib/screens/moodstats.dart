@@ -11,6 +11,17 @@ class moodStats extends StatelessWidget {
               bottomOpacity: 0.0,
               elevation: 0.0,
               backgroundColor: Colors.transparent,
+              actions: <Widget>[
+                IconButton(
+                  icon: Icon(
+                    Icons.verified_user,
+                    color: Colors.black,
+                  ),
+                  onPressed: () {
+                    // do something
+                  },
+                )
+              ],
               title: RichText(
                 text: new TextSpan(
                   // Note: Styles for TextSpans must be explicitly defined.
@@ -85,8 +96,8 @@ class _moodsStatsState extends State<moodsStats> {
                     children: <Widget>[
                       Text(
                         'Weekly',
-                        style:
-                            TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 23, fontWeight: FontWeight.bold),
                       )
                     ],
                   ),
@@ -140,8 +151,7 @@ class _moodsStatsState extends State<moodsStats> {
                   ],
                 ),
               ),
-
-              
+             
             ],
           )
         ]),
@@ -187,9 +197,7 @@ class moodsCards extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     ' Great Mood \n  20 Days 22 Recordings',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18),
+                    style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                   SizedBox(
                     width: 5,
@@ -198,9 +206,7 @@ class moodsCards extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 23),
                     child: Text(
                       '25%',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 23),
+                      style: TextStyle(color: Colors.white, fontSize: 23),
                     ),
                   ),
                 ],
