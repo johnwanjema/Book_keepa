@@ -15,8 +15,9 @@ class statsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size; //give height and width of device
     return Container(
-      padding: EdgeInsets.all(20),
-      height: size.height * .15,
+      padding: EdgeInsets.all(35),
+      width: size.width * 0.45,
+      // height: size.height * .15,
       decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(13)),
@@ -26,14 +27,18 @@ class statsCard extends StatelessWidget {
           Text( title,
               textAlign: TextAlign.center,
               style:
-              TextStyle(fontSize: 16, color: Colors.white)),
+              TextStyle(fontSize: 16, color: Colors.white,
+                  fontWeight: FontWeight.bold
+              )),
           SizedBox(
             height: 5,
           ),
           Text(count,
               textAlign: TextAlign.center,
               style:
-              TextStyle(fontSize: 23, color: Colors.white)),
+              TextStyle(fontSize: 30, color: Colors.white ,
+                fontWeight: FontWeight.bold
+              )),
         ],
       ),
     );
