@@ -59,6 +59,7 @@ class _moodsStatsState extends State<moodsStats> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size; //give height and width of device
     return Scaffold(
+      // bottomNavigationBar: ,
       body: SingleChildScrollView(
         child: Stack(children: <Widget>[
           Column(
@@ -66,13 +67,27 @@ class _moodsStatsState extends State<moodsStats> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               // SizedBox(height: size.height * .005),
-              Text(
-                'Moods Stats',
-                style: Theme.of(context)
-                    .textTheme
-                    .headline4
-                    .copyWith(fontWeight: FontWeight.w900),
+              RichText(
+                text: TextSpan(
+                  style: TextStyle(
+                      fontSize: 28,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                  children: [
+                    WidgetSpan(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                        child: Icon(Icons.arrow_back),
+                      ),
+                    ),
+                    TextSpan(text: 'Moods Stats'),
+                  ],
+                ),
               ),
+              // Text(
+              //   'Moods Stats',
+              //   style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+              // ),
               SizedBox(
                 height: 20,
               ),
@@ -151,10 +166,202 @@ class _moodsStatsState extends State<moodsStats> {
                   ],
                 ),
               ),
-             
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Tag Analysis',style: TextStyle(
+                  fontSize: 23,
+                  fontWeight:  FontWeight.bold
+                ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: MediaQuery.of(context).size.height * .4,
+                  child: PageView(
+                    children: <Widget>[
+                      sliderPage(),
+                      sliderPage(),
+                      // sliderPage(),
+                      // Text('wanjema'),
+                    ],
+                  ),
+                ),
+              )
             ],
           )
         ]),
+      ),
+    );
+  }
+}
+
+class sliderPage extends StatelessWidget {
+  const sliderPage({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(20),
+      margin: EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(13),
+        color: Colors.purple,
+      ),
+      child: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Other Places',
+                    style: TextStyle(
+                        fontSize: 23, color: Colors.white),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    '20 Days 22 Recordings',
+                    style: TextStyle(color: Colors.white),
+                  )
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                // mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(left: 100),
+                    child: Icon(
+                      Icons.map,
+                      size: 50,
+                      color: Colors.white,
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            children: <Widget>[
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                // mainAxisAlignment: MainAxisAlignment.,
+                children: <Widget>[
+                  Text(
+                    '25%',
+                    style: TextStyle(
+                        fontSize: 23, color: Colors.white),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'Great Mood',
+                    style: TextStyle(color: Colors.white),
+                  )
+                ],
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    '25%',
+                    style: TextStyle(
+                        fontSize: 23, color: Colors.white),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'Great Mood',
+                    style: TextStyle(color: Colors.white),
+                  )
+                ],
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    '25%',
+                    style: TextStyle(
+                        fontSize: 23, color: Colors.white),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'Great Mood',
+                    style: TextStyle(color: Colors.white),
+                  )
+                ],
+              )
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            children: <Widget>[
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                // mainAxisAlignment: MainAxisAlignment.,
+                children: <Widget>[
+                  Text(
+                    '25%',
+                    style: TextStyle(
+                        fontSize: 23, color: Colors.white),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'Great Mood',
+                    style: TextStyle(color: Colors.white),
+                  )
+                ],
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    '25%',
+                    style: TextStyle(
+                        fontSize: 23, color: Colors.white),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'Great Mood',
+                    style: TextStyle(color: Colors.white),
+                  )
+                ],
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
