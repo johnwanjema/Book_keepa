@@ -87,9 +87,38 @@ class _loansPageState extends State<loansPage> {
                     ],
                   ),
                 ),
+                Container(
+                  color: Colors.white,
+                  padding: EdgeInsets.all(23),
+                  child: Row(
+                    children: <Widget>[
+                      Column(
+                        children: <Widget>[
+                          Text('Current Total \n Loan Balance',style: TextStyle(
+                            color: Colors.blue,
+                            fontSize: 15
+                          ),),
+                        ],
+                      ),
+                      SizedBox(
+                        width: 34,
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Text('Ksh. 15,600' ,style: TextStyle(
+                            color: Colors.orange,
+                            fontSize: 43
+                          ),),
+                        ],
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
           ),
+
+
         ],
       ),
     );
