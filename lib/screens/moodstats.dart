@@ -1,3 +1,6 @@
+import 'package:book_keepa/widgets/bottomNavItem.dart';
+import 'package:book_keepa/widgets/moodsStats.dart';
+import 'package:book_keepa/widgets/sliderPage.dart';
 import 'package:book_keepa/widgets/statsCard.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +13,7 @@ class moodStats extends StatelessWidget {
           appBar: AppBar(
               bottomOpacity: 0.0,
               elevation: 0.0,
-              backgroundColor: Colors.transparent,
+              backgroundColor: Colors.white,
               actions: <Widget>[
                 IconButton(
                   icon: Icon(
@@ -59,125 +62,143 @@ class _moodsStatsState extends State<moodsStats> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size; //give height and width of device
     return Scaffold(
-      // bottomNavigationBar: ,
       body: SingleChildScrollView(
         child: Stack(children: <Widget>[
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              // SizedBox(height: size.height * .005),
-              RichText(
-                text: TextSpan(
-                  style: TextStyle(
-                      fontSize: 28,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold),
-                  children: [
-                    WidgetSpan(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                        child: Icon(Icons.arrow_back),
-                      ),
+          Container(
+            color: Colors.white,
+            height: MediaQuery.of(context).size.height * 1.7,
+            padding: EdgeInsets.all(12),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Column(
+                      children: <Widget>[
+                        Icon(
+                          Icons.arrow_back_ios,
+                          size: 40,
+                          color: Colors.black,
+                        )
+                      ],
                     ),
-                    TextSpan(text: 'Moods Stats'),
+                    SizedBox(
+                      width: 12,
+                    ),
+                    Column(
+                      children: <Widget>[
+                        Text(
+                          'Mood stats',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 33,
+                              fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
                   ],
                 ),
-              ),
-              // Text(
-              //   'Moods Stats',
-              //   style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-              // ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      Text(
-                        'Overview',
-                        style: TextStyle(
-                            color: Colors.blue,
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Column(
-                    children: <Widget>[
-                      Text(
-                        'Weekly',
-                        style: TextStyle(
-                            fontSize: 23, fontWeight: FontWeight.bold),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Column(
-                    children: <Widget>[
-                      Text('Monthly',
+                SizedBox(
+                  height: 40,
+                ),
+                Row(
+                  children: <Widget>[
+                    Column(
+                      children: <Widget>[
+                        Text(
+                          'Overview',
                           style: TextStyle(
-                              fontSize: 23, fontWeight: FontWeight.bold))
-                    ],
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Wrap(
-                spacing: 24,
-                children: <Widget>[
-                  statsCard(
-                    title: 'Day recorded',
-                    count: '74',
-                    color: Colors.blue,
-                  ),
-                  statsCard(
-                    title: 'Moods recorded',
-                    count: '88',
-                    color: Colors.purple,
-                  ),
-                ],
-              ),
-              Text(
-                'Overall Mood Performance',
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Wrap(
+                              color: Colors.blue,
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Column(
+                      children: <Widget>[
+                        Text(
+                          'Weekly',
+                          style: TextStyle(
+                              fontSize: 23, fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Column(
+                      children: <Widget>[
+                        Text('Monthly',
+                            style: TextStyle(
+                                fontSize: 23, fontWeight: FontWeight.bold))
+                      ],
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    statsCard(
+                      title: 'Day recorded',
+                      count: '74',
+                      color: Colors.blue,
+                    ),
+                    statsCard(
+                      title: 'Day recorded',
+                      count: '74',
+                      color: Colors.deepPurple,
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  'Overall Mood Performance',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Wrap(
                   runSpacing: 10.0,
                   spacing: 10.0,
                   children: <Widget>[
-                    moodsCards(),
-                    moodsCards(),
-                    moodsCards(),
-                    moodsCards(),
-                    moodsCards(),
+                    moodsCards(
+                      color: Colors.orange,
+                    ),
+                    moodsCards(
+                      color: Colors.green,
+                    ),
+                    moodsCards(
+                      color: Colors.blueAccent,
+                    ),
+                    moodsCards(
+                      color: Colors.purple,
+                    ),
+                    moodsCards(
+                      color: Colors.redAccent,
+                    ),
                   ],
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'Tag Analysis',style: TextStyle(
-                  fontSize: 23,
-                  fontWeight:  FontWeight.bold
+                SizedBox(
+                  height: 10,
                 ),
+                Text(
+                  'Tag Analysis',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
                   height: MediaQuery.of(context).size.height * .4,
                   child: PageView(
                     children: <Widget>[
@@ -188,240 +209,52 @@ class _moodsStatsState extends State<moodsStats> {
                     ],
                   ),
                 ),
-              )
-            ],
-          )
+              ],
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              height: 70,
+              decoration: BoxDecoration(color: Colors.white, boxShadow: [
+                BoxShadow(
+                  color: Colors.black,
+                  spreadRadius: 2,
+                  blurRadius: 7,
+                  offset: Offset(0, 3),
+                )
+              ]),
+              margin: EdgeInsets.only(top: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  BottomNavItem(
+                    icon: Icons.my_location,
+                  ),
+                  BottomNavItem(
+                    icon: Icons.insert_emoticon,
+                  ),
+                  BottomNavItem(
+                    icon: Icons.home,
+                  ),
+                  BottomNavItem(
+                    icon: Icons.accessibility,
+                  ),
+                  BottomNavItem(
+                    icon: Icons.cloud_download,
+                  ),
+                ],
+              ),
+            ),
+          ),
         ]),
       ),
     );
   }
 }
 
-class sliderPage extends StatelessWidget {
-  const sliderPage({
-    Key key,
-  }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(20),
-      margin: EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(13),
-        color: Colors.purple,
-      ),
-      child: Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    'Other Places',
-                    style: TextStyle(
-                        fontSize: 23, color: Colors.white),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    '20 Days 22 Recordings',
-                    style: TextStyle(color: Colors.white),
-                  )
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                // mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(left: 100),
-                    child: Icon(
-                      Icons.map,
-                      size: 50,
-                      color: Colors.white,
-                    ),
-                  )
-                ],
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Row(
-            children: <Widget>[
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                // mainAxisAlignment: MainAxisAlignment.,
-                children: <Widget>[
-                  Text(
-                    '25%',
-                    style: TextStyle(
-                        fontSize: 23, color: Colors.white),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    'Great Mood',
-                    style: TextStyle(color: Colors.white),
-                  )
-                ],
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    '25%',
-                    style: TextStyle(
-                        fontSize: 23, color: Colors.white),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    'Great Mood',
-                    style: TextStyle(color: Colors.white),
-                  )
-                ],
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    '25%',
-                    style: TextStyle(
-                        fontSize: 23, color: Colors.white),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    'Great Mood',
-                    style: TextStyle(color: Colors.white),
-                  )
-                ],
-              )
-            ],
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Row(
-            children: <Widget>[
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                // mainAxisAlignment: MainAxisAlignment.,
-                children: <Widget>[
-                  Text(
-                    '25%',
-                    style: TextStyle(
-                        fontSize: 23, color: Colors.white),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    'Great Mood',
-                    style: TextStyle(color: Colors.white),
-                  )
-                ],
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    '25%',
-                    style: TextStyle(
-                        fontSize: 23, color: Colors.white),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    'Great Mood',
-                    style: TextStyle(color: Colors.white),
-                  )
-                ],
-              ),
-            ],
-          )
-        ],
-      ),
-    );
-  }
-}
 
-class moodsCards extends StatelessWidget {
-  const moodsCards({
-    Key key,
-  }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(20),
-      // color: Colors.orange,
-      decoration: BoxDecoration(
-        color: Colors.orange,
-        borderRadius: BorderRadius.circular(13),
-      ),
-      child: Row(
-        children: <Widget>[
-          Container(
-            height: 42,
-            width: 43,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(13),
-              image: DecorationImage(
-                image: NetworkImage(
-                    'https://i.pinimg.com/originals/23/83/b8/2383b8c0a126d1d6e45c69e1f1d8c835.png'),
-                fit: BoxFit.fill,
-              ),
-            ),
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Column(
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Text(
-                    ' Great Mood \n  20 Days 22 Recordings',
-                    style: TextStyle(color: Colors.white, fontSize: 18),
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 23),
-                    child: Text(
-                      '25%',
-                      style: TextStyle(color: Colors.white, fontSize: 23),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-}
