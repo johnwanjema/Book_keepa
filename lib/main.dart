@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:book_keepa/screens/loans.dart';
 import 'package:book_keepa/screens/moodstats.dart';
 import 'package:flutter/material.dart';
 
@@ -45,7 +46,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
   void openHome(){
-    Navigator.push(context, MaterialPageRoute(builder: (context)=>moodStats()));
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>LoansPage()));
   }
 }
 
