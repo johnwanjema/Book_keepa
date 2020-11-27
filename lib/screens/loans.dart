@@ -116,7 +116,7 @@ class _loansPageState extends State<loansPage> {
                   ),
                 ),
                 Container(
-                  height: 234,
+                  // height: 1000,
                   // color: Colors.red,
                   child: Column(
                     children: <Widget>[
@@ -140,79 +140,124 @@ class _loansPageState extends State<loansPage> {
                       SizedBox(
                         height: 10,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            // height: 50,
-                            width: 380,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  spreadRadius: 5,
-                                  blurRadius: 7,
-                                  offset: Offset(
-                                      0, 3), // changes position of shadow
-                                ),
-                              ],
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Row(
-                              children: <Widget>[
-                                Container(
-                                  width: 109,
-                                  padding: EdgeInsets.all(20),
-                                  decoration: BoxDecoration(
-                                    color: Colors.red,
-                                    borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(8),
-                                        bottomLeft: Radius.circular(8)),
-                                  ),
-                                  child: Text(
-                                    '10TH \n MAY',
-                                    style: TextStyle(
-                                        fontSize: 18, color: Colors.white),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 40,
-                                ),
-                                Container(
-                                  padding: EdgeInsets.all(20),
-                                  // color: Colors.white,
-                                  width: 100,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: NetworkImage(
-                                          'https://tala.co/wp-content/uploads/2019/05/Tala-logo-horizontal.png'),
-                                      fit: BoxFit.fill,
-                                    ),
-                                  ),
-                                  // child: NetworkImage(url)
-                                ),
-                                Container(
-                                  padding: EdgeInsets.all(
-                                    20,
-                                  ),
-                                  // color: Colors.black,
-                                  child: Text('Ksh, 5,200',
-                                      style: TextStyle(fontSize: 18)),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      )
+                      providerDetails(
+                        color: Colors.red,
+                        imageUrl:
+                            'https://tala.co/wp-content/uploads/2019/05/Tala-logo-horizontal.png',
+                        amount: '5200',
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      providerDetails(
+                          color: Colors.orangeAccent,
+                          imageUrl:
+                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJQVj4t8bhrIjp20bGcqJKq6BGLn0HUw0Y-w&usqp=CAU',
+                          amount: '2,500'),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      providerDetails(
+                          color: Colors.blue,
+                          imageUrl:
+                              'https://d2c5ectx2y1vm9.cloudfront.net/assets/logo-5a6f97f580a4f616c2d8eaee20ed2326c2bb68596e1aeb1d9b3364a2f1e6ae1b.png',
+                          amount: '3,400'),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      providerDetails(
+                          color: Colors.blue,
+                          imageUrl:
+                              'https://1.bp.blogspot.com/-z273SXbpMB0/XwXYCoMcL5I/AAAAAAAAGpo/Y3TrlB9nPSsGC5s9FEY0jMFIF8DPs8yNwCNcBGAsYHQ/s1600/images-12.jpeg',
+                          amount: '4,500'),
+                      // providerDetails(),
                     ],
                   ),
-                )
+                ),
+              
               ],
             ),
           ),
         ],
       ),
+    );
+  }
+}
+
+class providerDetails extends StatelessWidget {
+  final String imageUrl;
+  final Color color;
+  final String amount;
+  const providerDetails({
+    Key key,
+    this.imageUrl,
+    this.color,
+    this.amount,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        //
+        Container(
+          // height: 50,
+          width: 380,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: Offset(0, 3), // changes position of shadow
+              ),
+            ],
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Row(
+            children: <Widget>[
+              Container(
+                width: 109,
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: color,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(8),
+                      bottomLeft: Radius.circular(8)),
+                ),
+                child: Text(
+                  '10TH \n MAY',
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
+              ),
+              SizedBox(
+                width: 40,
+              ),
+              Container(
+                padding: EdgeInsets.all(20),
+                // color: Colors.white,
+                width: 100,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(imageUrl),
+                    fit: BoxFit.fill,
+                  ),
+                ),
+                // child: NetworkImage(url)
+              ),
+              Container(
+                padding: EdgeInsets.all(
+                  20,
+                ),
+                // color: Colors.black,
+                child: Text('Ksh $amount', style: TextStyle(fontSize: 18)),
+              )
+            ],
+          ),
+        )
+      ],
     );
   }
 }
