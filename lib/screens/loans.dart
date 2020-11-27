@@ -177,6 +177,8 @@ class _loansPageState extends State<loansPage> {
                         ),
                         providerDetails(
                           color: Colors.red,
+                          date: '10TH' ,
+                          month: 'May',
                           imageUrl:
                               'https://tala.co/wp-content/uploads/2019/05/Tala-logo-horizontal.png',
                           amount: '5200',
@@ -186,6 +188,8 @@ class _loansPageState extends State<loansPage> {
                         ),
                         providerDetails(
                             color: Colors.orangeAccent,
+                            date: '15TH' ,
+                            month: 'May',
                             imageUrl:
                                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJQVj4t8bhrIjp20bGcqJKq6BGLn0HUw0Y-w&usqp=CAU',
                             amount: '2,500'),
@@ -194,6 +198,8 @@ class _loansPageState extends State<loansPage> {
                         ),
                         providerDetails(
                             color: Colors.blue,
+                            date: '21ST' ,
+                            month: 'May',
                             imageUrl:
                                 'https://d2c5ectx2y1vm9.cloudfront.net/assets/logo-5a6f97f580a4f616c2d8eaee20ed2326c2bb68596e1aeb1d9b3364a2f1e6ae1b.png',
                             amount: '3,400'),
@@ -202,6 +208,8 @@ class _loansPageState extends State<loansPage> {
                         ),
                         providerDetails(
                             color: Colors.blue,
+                            date: '23RD' ,
+                            month: 'May',
                             imageUrl:
                                 'https://1.bp.blogspot.com/-z273SXbpMB0/XwXYCoMcL5I/AAAAAAAAGpo/Y3TrlB9nPSsGC5s9FEY0jMFIF8DPs8yNwCNcBGAsYHQ/s1600/images-12.jpeg',
                             amount: '4,500'),
@@ -227,11 +235,13 @@ class providerDetails extends StatelessWidget {
   final String imageUrl;
   final Color color;
   final String amount;
+  final String date;
+  final String month;
   const providerDetails({
     Key key,
     this.imageUrl,
     this.color,
-    this.amount,
+    this.amount, this.date, this.month,
   }) : super(key: key);
 
   @override
@@ -266,8 +276,7 @@ class providerDetails extends StatelessWidget {
                       topLeft: Radius.circular(8),
                       bottomLeft: Radius.circular(8)),
                 ),
-                child: Text(
-                  '10TH \n MAY',
+                child: Text(date + '\n' + month,
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
               ),
