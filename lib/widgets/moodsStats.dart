@@ -50,7 +50,9 @@ class moodsCards extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 23),
                     child: Text(
                       percantage.toString() + '%',
-                      style: TextStyle(color: Colors.white, fontSize: 23),
+                      style: TextStyle(color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25),
                     ),
                   ),
                 ],
