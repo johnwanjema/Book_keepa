@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 
 class moodsCards extends StatelessWidget {
   final Color color;
+  final int percantage;
   const moodsCards({
-    Key key, this.color,
+    Key key,
+    this.color,
+    this.percantage,
   }) : super(key: key);
 
   @override
@@ -21,7 +24,7 @@ class moodsCards extends StatelessWidget {
             height: 42,
             width: 43,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(13),
+              borderRadius: BorderRadius.circular(80),
               image: DecorationImage(
                 image: NetworkImage(
                     'https://i.pinimg.com/originals/23/83/b8/2383b8c0a126d1d6e45c69e1f1d8c835.png'),
@@ -46,7 +49,7 @@ class moodsCards extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 23),
                     child: Text(
-                      '25%',
+                      percantage.toString() + '%',
                       style: TextStyle(color: Colors.white, fontSize: 23),
                     ),
                   ),

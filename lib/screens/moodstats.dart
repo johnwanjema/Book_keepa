@@ -173,18 +173,23 @@ class _moodsStatsState extends State<moodsStats> {
                   children: <Widget>[
                     moodsCards(
                       color: Colors.orange,
+                      percantage: 25,
                     ),
                     moodsCards(
                       color: Colors.green,
+                      percantage: 16,
                     ),
                     moodsCards(
                       color: Colors.blueAccent,
+                      percantage: 36,
                     ),
                     moodsCards(
                       color: Colors.purple,
+                      percantage: 8,
                     ),
                     moodsCards(
                       color: Colors.redAccent,
+                      percantage: 15,
                     ),
                   ],
                 ),
@@ -202,8 +207,8 @@ class _moodsStatsState extends State<moodsStats> {
                   height: MediaQuery.of(context).size.height * .4,
                   child: PageView(
                     children: <Widget>[
-                      sliderPage(),
-                      sliderPage(),
+                      sliderPage(color: Colors.red),
+                      sliderPage(color: Colors.blue,),
                       // sliderPage(),
                       // Text('wanjema'),
                     ],
