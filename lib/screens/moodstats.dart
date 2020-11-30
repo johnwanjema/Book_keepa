@@ -176,22 +176,32 @@ class _moodsStatsState extends State<moodsStats> {
                     moodsCards(
                       color: Colors.orange,
                       percantage: 25,
+                      days: 20 ,
+                      recordings: 22,
                     ),
                     moodsCards(
                       color: Colors.green,
                       percantage: 16,
+                      days: 10 ,
+                      recordings: 14,
                     ),
                     moodsCards(
                       color: Colors.blueAccent,
                       percantage: 36,
+                      days: 28 ,
+                      recordings: 32,
                     ),
                     moodsCards(
                       color: Colors.purple,
                       percantage: 8,
+                      days: 5 ,
+                      recordings: 7,
                     ),
                     moodsCards(
                       color: Colors.redAccent,
                       percantage: 15,
+                      days: 11 ,
+                      recordings: 13,
                     ),
                   ],
                 ),

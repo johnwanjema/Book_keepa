@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class moodsCards extends StatelessWidget {
   final Color color;
   final int percantage;
+  final int days;
+  final int recordings;
   const moodsCards({
     Key key,
     this.color,
-    this.percantage,
+    this.percantage, this.days, this.recordings,
   }) : super(key: key);
 
   @override
@@ -40,7 +42,7 @@ class moodsCards extends StatelessWidget {
               Row(
                 children: <Widget>[
                   Text(
-                    ' Great Mood \n  20 Days 22 Recordings',
+                    ' Great Mood \n '+ days.toString()+ ' Days '+ recordings.toString() +' Recordings',
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                   SizedBox(
