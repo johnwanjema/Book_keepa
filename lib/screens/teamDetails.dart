@@ -229,8 +229,9 @@ class _appBodyState extends State<appBody> {
                         ],
                       ),
                       child: Text(
-                        '20 Requests',
-                        style: TextStyle(color: Colors.blue),
+                        '20  Requests',
+                        style: TextStyle(
+                            color: Colors.blue, fontWeight: FontWeight.bold),
                       ),
                     ),
                     Container(
@@ -248,7 +249,8 @@ class _appBodyState extends State<appBody> {
                       padding: EdgeInsets.all(10),
                       child: Text(
                         '20 Supplies',
-                        style: TextStyle(color: Colors.blue),
+                        style: TextStyle(
+                            color: Colors.blue, fontWeight: FontWeight.bold),
                       ),
                     )
                   ],
@@ -266,13 +268,14 @@ class _appBodyState extends State<appBody> {
                   children: <Widget>[
                     Text(
                       'Members 40',
-                      style: TextStyle(fontSize: 20,
+                      style: TextStyle(
+                        fontSize: 20,
                         decoration: TextDecoration.underline,
                       ),
                     ),
                     Text(
                       'Verification Documents',
-                      style: TextStyle(fontSize: 16,color: Colors.grey),
+                      style: TextStyle(fontSize: 16, color: Colors.grey),
                     ),
                   ],
                 ),
@@ -288,96 +291,8 @@ class _appBodyState extends State<appBody> {
                       runSpacing: 20.0, // distance between rows
                       spacing: 30.0, // distance between chips
                       children: <Widget>[
-                        Container(
-                          padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                          height: MediaQuery.of(context).size.height * .3,
-                          width: MediaQuery.of(context).size.width,
-                          child: Card(
-                            elevation: 5,
-                            child: Padding(
-                              padding: EdgeInsets.all(7),
-                              child: Stack(children: <Widget>[
-                                Row(
-                                  children: <Widget>[
-                                    Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        Icon(
-                                          Icons.supervised_user_circle,
-                                          size: 50,
-                                        ),
-                                        Row(
-                                          children: <Widget>[
-                                            Text(
-                                              'Name :',
-                                              style: TextStyle(fontSize: 16),
-                                            ),
-                                            Text(
-                                              'John Doe',
-                                              style: TextStyle(fontSize: 16),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          children: <Widget>[
-                                            Text(
-                                              'Phone Number:',
-                                              style: TextStyle(fontSize: 16),
-                                            ),
-                                            Text(
-                                              '+254 712 345 678',
-                                              style: TextStyle(fontSize: 16),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          children: <Widget>[
-                                            Text(
-                                              'Email :',
-                                              style: TextStyle(fontSize: 16),
-                                            ),
-                                            Text(
-                                              'jdoe@biology.com',
-                                              style: TextStyle(fontSize: 16),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      width: 15,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 70),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: <Widget>[
-                                          Text(
-                                            'Request : 20',
-                                            style: TextStyle(fontSize: 16),
-                                          ),
-                                          SizedBox(
-                                            height: 15,
-                                          ),
-                                          Text(
-                                            'Uploads : 20',
-                                            style: TextStyle(fontSize: 16),
-                                          ),
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ]),
-                            ),
-                          ),
-                        ),
+                        MemberDetails(),
+                        MemberDetails(),
                       ],
                     ),
                   ),
@@ -389,6 +304,110 @@ class _appBodyState extends State<appBody> {
             ],
           ),
         ],
+      ),
+    );
+  }
+}
+
+class MemberDetails extends StatelessWidget {
+  const MemberDetails({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+      height: MediaQuery.of(context).size.height * .3,
+      width: MediaQuery.of(context).size.width,
+      child: Card(
+        elevation: 5,
+        child: Padding(
+          padding: EdgeInsets.all(7),
+          child: Stack(children: <Widget>[
+            Row(
+              children: <Widget>[
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      height: 60,
+                      width: 70,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(80),
+                        image: DecorationImage(
+                          image: NetworkImage(
+                              'https://www.pngkey.com/png/detail/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png'),
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Text(
+                          'Name :',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        Text(
+                          'John Doe - Admin',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Text(
+                          'Phone Number:',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        Text(
+                          '+254 712 345 678',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Text(
+                          'Email :',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        Text(
+                          'jdoe@biology.com',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  width: 15,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 70),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'Request : 20',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        'Uploads : 20',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ]),
+        ),
       ),
     );
   }
