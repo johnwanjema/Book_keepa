@@ -15,7 +15,7 @@ class statsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size; //give height and width of device
     return Container(
-      padding: EdgeInsets.all(35),
+      padding: EdgeInsets.all(30),
       width: size.width * 0.45,
       // height: size.height * .15,
       decoration: BoxDecoration(
@@ -25,9 +25,9 @@ class statsCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text( title,
-              textAlign: TextAlign.center,
+              // textAlign: TextAlign.center,
               style:
-              TextStyle(fontSize: 16, color: Colors.white,
+              TextStyle(fontSize: 15, color: Colors.white,
                   fontWeight: FontWeight.bold
               )),
           SizedBox(

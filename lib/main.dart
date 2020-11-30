@@ -28,35 +28,79 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
-  void initState() {
-    super.initState();
-    Timer(Duration(seconds:  3), openHome);
-  }
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueAccent,
+      appBar: AppBar(
+        title: Text('Pages Design'),
+      ),
+      backgroundColor: Colors.white,
       body: Center(
-        child: Container(
-            child: Text('Book Keepa',style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.w500
-            ),),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(
+              height: 70,
+            ),
+            card(
+              title: 'Loans Page',
+              page: LoansPage(),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            card(
+              title: 'Moods Page',
+              page: moodStats(),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            card(
+              title: 'Dashboard Page',
+              page: TeamDetails(),
+            ),
+          ],
         ),
       ),
     );
   }
-  void openHome(){
-    Navigator.push(context, MaterialPageRoute(builder: (context)=>TeamDetails()));
-  }
 }
 
+class card extends StatelessWidget {
+  final String title;
+  final page;
+  const card({
+    Key key,
+    this.title,
+    this.page,
+  }) : super(key: key);
 
-
-
-
-
-
-
-
-
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => page));
+      },
+      child: Container(
+        width: MediaQuery.of(context).size.width * .75,
+        padding: EdgeInsets.symmetric(vertical: 30, horizontal: 80),
+        decoration: BoxDecoration(
+            color: Colors.blue,
+            borderRadius: BorderRadius.circular(12),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black.withOpacity(0.2),
+                  offset: Offset(0, 9),
+                  blurRadius: 20,
+                  spreadRadius: 3)
+            ]),
+        child: Text(
+          title,
+          style: TextStyle(
+              fontSize: 20, color: Colors.white, fontWeight: FontWeight.w500),
+        ),
+      ),
+    );
+  }
+}

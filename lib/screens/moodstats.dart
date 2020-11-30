@@ -3,6 +3,7 @@ import 'package:book_keepa/widgets/moodsStats.dart';
 import 'package:book_keepa/widgets/sliderPage.dart';
 import 'package:book_keepa/widgets/statsCard.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 
 class moodStats extends StatelessWidget {
   @override
@@ -17,7 +18,8 @@ class moodStats extends StatelessWidget {
               actions: <Widget>[
                 IconButton(
                   icon: Icon(
-                    Icons.verified_user,
+                    Icons.account_circle,
+                    size: 30,
                     color: Colors.black,
                   ),
                   onPressed: () {
@@ -151,8 +153,8 @@ class _moodsStatsState extends State<moodsStats> {
                       color: Colors.blue,
                     ),
                     statsCard(
-                      title: 'Day recorded',
-                      count: '74',
+                      title: 'Moods recorded',
+                      count: '88',
                       color: Colors.deepPurple,
                     ),
                   ],
@@ -173,18 +175,23 @@ class _moodsStatsState extends State<moodsStats> {
                   children: <Widget>[
                     moodsCards(
                       color: Colors.orange,
+                      percantage: 25,
                     ),
                     moodsCards(
                       color: Colors.green,
+                      percantage: 16,
                     ),
                     moodsCards(
                       color: Colors.blueAccent,
+                      percantage: 36,
                     ),
                     moodsCards(
                       color: Colors.purple,
+                      percantage: 8,
                     ),
                     moodsCards(
                       color: Colors.redAccent,
+                      percantage: 15,
                     ),
                   ],
                 ),
@@ -198,17 +205,84 @@ class _moodsStatsState extends State<moodsStats> {
                 SizedBox(
                   height: 10,
                 ),
-                Container(
-                  height: MediaQuery.of(context).size.height * .4,
-                  child: PageView(
-                    children: <Widget>[
-                      sliderPage(),
-                      sliderPage(),
-                      // sliderPage(),
-                      // Text('wanjema'),
-                    ],
-                  ),
+                Row(
+                  children: <Widget>[
+                    Container(
+                      width: MediaQuery.of(context).size.height * .02,
+                      height: MediaQuery.of(context).size.height * .4,
+                      child: Text(''),
+                      decoration: BoxDecoration(
+                          color: Colors.pinkAccent,
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(12),
+                              bottomRight: Radius.circular(12))),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    sliderPage(color: Colors.redAccent),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.height * .04,
+                      height: MediaQuery.of(context).size.height * .4,
+                      padding: EdgeInsets.only(top: 25,left: 20),
+                      child: Column(
+                        children: <Widget>[
+                          Text(
+                            'v',
+                            style: TextStyle(color: Colors.white, fontSize: 23),
+                          ),
+                          Text(
+                            '2',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            '2',
+                            style: TextStyle(color: Colors.white, fontSize: 23),
+                          ),
+                          Text(
+                            'o',
+                            style: TextStyle(color: Colors.white, fontSize: 15),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            '2',
+                            style: TextStyle(color: Colors.white, fontSize: 23),
+                          ),
+                          Text(
+                            'p',
+                            style: TextStyle(color: Colors.white, fontSize: 15),
+                          ),
+                        ],
+                      ),
+                      decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(12),
+                              bottomLeft: Radius.circular(12))),
+                    ),
+                  ],
                 ),
+                // Container(
+                //   height: MediaQuery.of(context).size.height * .4,
+                //   child: PageView(
+                //     children: <Widget>[
+                //       sliderPage(color: Colors.red),
+                //       sliderPage(
+                //         color: Colors.blue,
+                //       ),
+                //       // sliderPage(),
+                //       // Text('wanjema'),
+                //     ],
+                //   ),
+                // ),
               ],
             ),
           ),
@@ -235,6 +309,7 @@ class _moodsStatsState extends State<moodsStats> {
                   ),
                   BottomNavItem(
                     icon: Icons.insert_emoticon,
+                    color: Colors.red,
                   ),
                   BottomNavItem(
                     icon: Icons.home,
@@ -254,7 +329,3 @@ class _moodsStatsState extends State<moodsStats> {
     );
   }
 }
-
-
-
-

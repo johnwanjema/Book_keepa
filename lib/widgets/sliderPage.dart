@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 
 class sliderPage extends StatelessWidget {
+  final Color color;
   const sliderPage({
     Key key,
+    this.color,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: MediaQuery.of(context).size.width * .75,
+      height: MediaQuery.of(context).size.height * .4,
       padding: EdgeInsets.all(20),
-      margin: EdgeInsets.all(12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(13),
-        color: Colors.purple,
+        color: color,
       ),
       child: Column(
         children: <Widget>[
@@ -39,7 +42,7 @@ class sliderPage extends StatelessWidget {
                 // mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.only(left: 100),
+                    padding: const EdgeInsets.only(left: 60),
                     child: Icon(
                       Icons.map,
                       size: 50,
